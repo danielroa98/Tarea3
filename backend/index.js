@@ -747,6 +747,6 @@ app.get('/facet', (req, res) =>{
 })
 */
 
-app.listen(4000, () => {
-    console.log('App is running in port 4000')
+app.listen(3000, () => {
+    console.log('App is running in port 3000')
 })
