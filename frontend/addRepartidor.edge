@@ -1,0 +1,44 @@
+@layout('operations.add')
+@section('contentADD')
+
+<h3>Inserte los datos del repartidor</h3>
+
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-6 offset-3">
+            <form action="/addRepartidor/save" method="POST">
+                <div class="form-group">
+                    <label for="">ID del repartidor</label>
+                    <input type="text" class="form-control" placeholder="Ingresa el ID" name="rID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Ingresa el nombre" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                <label for="">Apellido</label>
+                    <input type="text" class="form-control" placeholder="Ingresa el apellido" name="apellido" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Teléfono</label>
+                    <input type="text" class="form-control" placeholder="Ingresa el teléfono" name="telefono" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Placa</label>
+                    <input type="text" class="form-control" placeholder="Ingresa la placa del vehículo (Tnn-TTT)" name="placa" required>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@endsection

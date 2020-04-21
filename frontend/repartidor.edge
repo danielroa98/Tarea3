@@ -1,0 +1,52 @@
+@layout('layouts.info')
+@section('contentINFO')
+
+<h1>Repartidores</h1>
+
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-3 offset-9">
+                <a href="/addRepartidor" class="btn btn-primary">
+                    Ingresar repartidor
+                </a>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID repartidor</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Placa</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @each(repartidor in repartidores)
+            <tr>
+                <td>{{repartidor.rID}}</td>
+                <td>{{repartidor.nombre}}</td>
+                <td>{{repartidor.apellido}}</td>
+                <td>{{repartidor.telefono}}</td>
+                <td>{{repartidor.placa}}</td>
+                <td>
+                   <a href="/editarRepartidor/{{repartidor.rID}}" class="btn btn-success text-right">
+                    Editar
+                    </a>
+                    <a href="/borrarRepartidor/{{repartidor.rID}}" class="btn btn-danger text-right">
+                    Borrar
+                    </a>
+                </td>
+            </tr>
+            @endeach
+        </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+@endsection

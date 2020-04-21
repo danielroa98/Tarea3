@@ -1,0 +1,66 @@
+@layout('layouts.info')
+@section('contentINFO')
+
+<h1>Pedidos</h1>
+
+    <div class="container">
+        <div class="row m-5">
+            <div>
+                <a href="/addPedido" class="btn btn-primary">
+                    Ingresar pedido
+                </a>
+            </div>
+            <div>
+                <a href="/lookup" class="btn btn-primary">
+                    Ver lookup de pedidos
+                </a>
+            </div>
+            <div>
+                <a href="/facet" class="btn btn-primary">
+                    Ver facet de pedidos
+                </a>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID del pedido</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Producto</th>
+                <th scope="col">ID del repartidor</th>
+                <th scope="col">ID de la tienda</th>
+                <th scope="col">ID del usuario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+       <tbody>
+            @each(pedido in pedidos)
+            <tr>
+                <td>{{pedido.pID}}</td>
+                <td>{{pedido.Hora}}</td>
+                <td>{{pedido.Monto}}</td>
+                <td>{{pedido.producto}}</td>
+                <td>{{pedido.rID}}</td>
+                <td>{{pedido.tID}}</td>
+                <td>{{pedido.uID}}</td>
+                <td>
+                   <a href="/editarPedido/{{pedido.pID}}" class="btn btn-success text-right">
+                    Editar
+                    </a>
+                    <a href="/borrarPedido/{{pedido.pID}}" class="btn btn-danger text-right">
+                    Borrar
+                    </a>
+                </td>
+            </tr>
+            @endeach
+        </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+@endsection

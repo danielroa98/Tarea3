@@ -1,0 +1,58 @@
+@layout('layouts.info')
+@section('contentINFO')
+
+<h1>Tiendas</h1>
+
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-3 offset-9">
+                <a href="/addTienda" class="btn btn-primary">
+                    Ingresar Tienda
+                </a>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID tienda</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Latitud</th>
+                <th scope="col">Longitud</th>
+                <th scope="col">Nombre de la tienda</th>
+                <th scope="col">Gerente</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Ganancias</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @each(tienda in tiendas)
+            <tr>
+                <td>{{tienda.tID}}</td>
+                <td>{{tienda.direccion}}</td>
+                <td>{{tienda.lat}}</td>
+                <td>{{tienda.long}}</td>
+                <td>{{tienda.nombre}}</td>
+                <td>{{tienda.gerente}}</td>
+                <td>{{tienda.categoria}}</td>
+                <td>{{tienda.ganancias}}</td>
+                <td>
+                   <a href="/editarTienda/{{tienda.tID}}" class="btn btn-success text-right">
+                    Editar
+                    </a>
+                    <a href="/borrarTienda/{{tienda.tID}}" class="btn btn-danger text-right">
+                    Borrar
+                    </a>
+                </td>
+            </tr>
+            @endeach
+        </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+@endsection
