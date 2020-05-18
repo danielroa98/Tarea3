@@ -12,6 +12,17 @@ const MongoClient = require('mongodb').MongoClient;
 const mongo = require('mongodb')
 const url = "mongodb+srv://equipo3:admin@cluster-1xa1r.gcp.mongodb.net/test?retryWrites=true&w=majority"
 
+var redis = require("redis");
+
+const client = redis.createClient({
+    host: 'redis-0001-001.ytsagi.0001.use2.cache.amazonaws.com',
+    port: '6379'
+})
+
+client.on("connect", function () {
+    console.log("You are now connected");
+});
+
 
 // Automatically sets view engine and adds dot notation to app.render
 app.use(engine);
@@ -33,6 +44,7 @@ app.get('/', async (req, res) => {
 
 app.get('/home', async (req, res) => {
     res.render('home')
+
 })
 // Fin HOME 
 
